@@ -1,0 +1,49 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+  <title>Sanity Check Sample</title>
+  <link rel="stylesheet" type="text/css" href="../../docs/tutorial/content/contentstyle.css"/>
+</head>
+<body>
+<h1>Sanity Check</h1>
+<p>
+   The Sanity Add-On is intended to demonstrate basic field data access.  It allows a user to configure a list of
+   microblock display names that have interesting values along with minimum and maximum expected values.  It can then
+   perform a a basic sanity check to look for any current values outside of the specified ranges.  This may be useful
+   finding problems like open or shorted sensors.
+</p>
+<h2>Try it out</h2>
+<p>
+   Deploy the Sanity sample add-on by executing the 'deploy' task and starting (if necessary) the server.
+</p>
+<p>
+   Browse to <span class="examp">http://yourserver/sanity</span> (<a target="_blank" href="http://localhost/sanity">open on localhost</a>).
+   This should present a login page.  Log in with any valid operator and password.
+</p>
+<p>
+   Add some values to check.  Fill in some display names (like &quot;Zone Temp&quot;), minimum, and maximum values,
+   then click the &quot;Add&quot; button.
+</p>
+<p>
+   Fill in a location (reference name path below the geographic root - like &quot;<span class="examp">building200/floor_1</span>&quot;)
+   and press the &quot;Run&quot; button to run the report from the specified location.
+   If you leave the location blank, it will run from the root of the Geographic tree.
+</p>
+<p>
+
+</p>
+<h2>Important Lessons</h2>
+<p>
+   The <span class="examp">Controller.java</span> file is the entry point for most of the interesting parts of this sample.
+   All requests for server side action are sent to this class.
+   The <span class="examp">doRun</span> method runs this &quot;report&quot;, using a ReadAction to find PresentValue aspects,
+   retrieve their current value from the field, and compare it to stored limits.
+</p>
+<p>
+   <span class="examp">SanityCheckConfig</span>'s <span class="examp">load</span> and <span class="examp">save</span> methods
+   use <a target="_blank" href="../../docs/javadoc/index.html?com/controlj/green/addonsupport/access/DataStore.html">DataStores</a>
+   to read and write the configuration information.
+</p>
+</body>
+</html>
