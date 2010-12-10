@@ -1,6 +1,5 @@
 package com.controlj.addon.sanity;
 
-import com.controlj.green.addonsupport.AddOnInfo;
 import com.controlj.green.addonsupport.InvalidConnectionRequestException;
 import com.controlj.green.addonsupport.access.*;
 import com.controlj.green.addonsupport.access.aspect.PhysicalPoint;
@@ -150,7 +149,7 @@ public class Controller extends HttpServlet
             map.put(entry.getDisplayName(), entry);
          }
 
-         SystemConnection connection = AddOnInfo.getAddOnInfo().getUserSystemConnection(request);
+         SystemConnection connection = DirectAccess.getDirectAccess().getUserSystemConnection(request);
          connection.runReadAction( FieldAccessFactory.newFieldAccess(), new ReadAction()
          {
             public void execute(SystemAccess access) throws Exception

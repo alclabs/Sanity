@@ -2,7 +2,6 @@ package com.controlj.addon.sanity;
 
 import com.controlj.green.addonsupport.access.*;
 import com.controlj.green.addonsupport.InvalidConnectionRequestException;
-import com.controlj.green.addonsupport.AddOnInfo;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
@@ -80,7 +79,7 @@ public class SanityCheckConfig
       }
       if (list == null)
       {
-         list = new SanityCheckConfig(AddOnInfo.getAddOnInfo().getUserSystemConnection(req));
+         list = new SanityCheckConfig(DirectAccess.getDirectAccess().getUserSystemConnection(req));
          try
          {
             list.load();
