@@ -1,16 +1,21 @@
 // this bit of complexity is to pull down the main build script from the alclabs maven repository
 // and then apply it.
 configurations { gradleScript }
-repositories { mavenRepo url: 'http://repo.alcshare.com' }
-dependencies { gradleScript group: 'com.alcshare', name: 'alclabs-gradle', ext: 'gradle', version: '1.16' }
+repositories { maven { url 'http://repo.alcshare.com'} }
+dependencies { gradleScript group: 'com.alcshare', name: 'addon-gradle', ext: 'gradle', version: '1.7' }
 apply from: configurations.gradleScript.resolve().iterator().next()
+
+
 
 info {
   name = 'Sanity Check'
   description = 'Checks for sane field values'
-  version = '2.0'
+  version = '2.1'
   vendor = 'ALC Labs'
 }
+
+sourceCompatibility = 1.7
+targetCompatibility = 1.7
 
 dependencies {
    compile 'jstl:jstl:1.1.2'
