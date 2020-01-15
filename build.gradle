@@ -10,7 +10,7 @@ apply from: configurations.gradleScript.resolve().iterator().next()
 info {
   name = 'Sanity Check'
   description = 'Checks for sane field values'
-  version = '2.1'
+  version = '2.2'
   vendor = 'ALC Labs'
 }
 
